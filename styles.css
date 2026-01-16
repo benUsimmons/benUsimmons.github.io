@@ -1,3 +1,9 @@
 .home-page{
     background-color: rgb(70, 70, 178);
 }
+
+.hc-1 img{
+    height: 300px;
+    width: auto;
+    border-radius: 50%;
+}
