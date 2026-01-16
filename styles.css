@@ -1,9 +1,29 @@
 .home-page{
-    background-color: rgb(70, 70, 178);
+    display: flex;
+    background-color: rgb(40, 114, 141);
+    justify-content: center;
+}
+
+.heading-container{
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
 }
 
 .hc-1 img{
     height: 300px;
-    width: auto;
+    width: 300px;
     border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hc-2 h1{
+    color: white;
+    font-size: 50px;
+}
+
+.hc-2 p{
+    color: white;
+    font-size: 30px;
 }
