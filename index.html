@@ -4,18 +4,56 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <html>
+  <canvas id="bg"> </canvas>
   <body class="home-page">
     <div class="heading-container">
       <div class="hc-1">
         <img src="self_portrait.jpeg" alt="Photo of Ben Simmons">
+        <h1>Benjamin Simmons</h1>
       </div>
       <div class="hc-2">
-        <h1>Benjamin Simmons</h1>
-        <hr>
-        <p>I got my Bachelor's Degree in Computer Science with a Minor in Cyber Security<br>from Clemson University</p>
-        <p>Go Tigers!</p>
+        <h1>About Me</h1>
+        <p>Ben Simmons just completed his Bachelor's degree in Computer Science from Clemson University. Along with his Major, he also completed a Minor in Cyber Secruity. </p>
+      </div>
+    </div>
+    <div class="section-1">
+      <div class="interests">
 
       </div>
     </div>
   </body>
 </html>
+<script>
+const canvas = document.getElementById("bg");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const particles = Array.from({ length: 80 }, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 2 + 1,
+    dx: (Math.random() - 0.5) * 0.5,
+    dy: (Math.random() - 0.5) * 0.5
+}));
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "rgb(27, 87, 139)";
+    particles.forEach(p => {
+        p.x += p.dx;
+        p.y += p.dy;
+
+        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+    });
+    requestAnimationFrame(animate);
+}
+
+animate();
+</script>
