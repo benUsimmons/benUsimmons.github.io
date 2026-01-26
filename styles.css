@@ -1,7 +1,10 @@
+/* ******************************************* HOME PAGE **************************************************/
 .home-page{
     display: flex;
+    flex-direction: column;
     background-color: rgb(255, 255, 255);
     justify-content: center;
+    align-items: center;
 }
 #bg {
     position: fixed;
@@ -12,11 +15,13 @@
     z-index: -1;
 }
 
+
 .heading-container{
     display: flex;
     flex-direction: row;
     gap: 100px;
     justify-content: center;
+    align-items: center;
 }
 
 .hc-1 img{
@@ -38,10 +43,7 @@
     color: rgb(27, 87, 139);
     font-size: 30px;
 }
-/* .hc-2 h1{
-    color: rgb(27, 87, 139);
-    font-size: 40px;
-} */
+
 
 .hc-2 p{
     color: rgb(255, 255, 255);
@@ -59,3 +61,5 @@
     margin: 0;
     margin-bottom: 10px;
 }
+
+/* ******************************************* END HOME PAGE **************************************************/
