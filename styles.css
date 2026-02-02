@@ -22,6 +22,7 @@
     gap: 100px;
     justify-content: center;
     align-items: center;
+    margin-top: 75px;
 }
 
 .hc-1 img{
@@ -61,5 +62,40 @@
     margin: 0;
     margin-bottom: 10px;
 }
+
+.interests{
+    background-color: rgba(13, 27, 39, 0.586);
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.interests h1{
+    background-color: rgba(13, 27, 39, 0.199);
+    margin: 0;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.interests ul{
+    list-style-position: inside;
+    background-color: rgba(13, 27, 39, 0.199);
+    margin: 0;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.contact-icons{
+    color: black;
+    background-color: rgba(13, 27, 39, 0.586);
+    
+}
+
+.section-1{
+    display: flex;
+    flex-direction: row;
+}
+
 
 /* ******************************************* END HOME PAGE **************************************************/
