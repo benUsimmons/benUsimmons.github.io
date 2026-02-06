@@ -1,3 +1,28 @@
 /* ******************************************* HOME PAGE **************************************************/
+.home-page{
+    margin: 0;
+}
+.section1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/images/photo1.jpg");
+    height: 500px;
+    width: 100%;
+    background-size: cover;
+    background-position: center bottom;
+    gap: 500px;
+}
+
+.section1 h1{
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.section1 i{
+    font-size: 48px;
+    color: rgba(255, 255, 255, 0.528);
+}
+
 
 /* ******************************************* END HOME PAGE **************************************************/
