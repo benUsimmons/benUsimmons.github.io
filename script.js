@@ -7,10 +7,10 @@ leftArrow.addEventListener("click", leftClick);
 rightArrow.addEventListener("click", rightClick);
 
 const photos = [
-  "photo1.jpg",
-  "photo2.jpg",
-  "photo3.jpg",
-  "photo4.jpg"
+  "/images/photo1.jpg",
+  "/images/photo2.jpg",
+  "/images/photo3.jpg",
+  "/images/photo4.jpg"
 ];
 
 let currentIndex = 0;
@@ -32,6 +32,15 @@ function leftClick(){
     currentIndex = photos.length - 1; // wrap to end
   }
   section1.style.backgroundImage = `url('${photos[currentIndex]}')`;
+}
+
+function setBg(url){
+  section1.classList.add("fading");
+  section1.style.setProperty("--bg", `url('${url}')`);
+  section1.style.setProperty("--opacity", "0");
+  setTimeout(() => {
+    section1.style.setProperty("--opacity", "1");
+  }, 20);
 }
 
 
