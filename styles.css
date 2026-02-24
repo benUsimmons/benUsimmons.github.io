@@ -3,6 +3,7 @@
     margin: 0;
 }
 .section1{
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,6 +24,40 @@
 .section1 i{
     font-size: 48px;
     color: rgba(255, 255, 255, 0.528);
+}
+
+.section2{
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    height: 500px;
+    margin: 0;
+}
+
+.my-photo{
+    width: 30%;
+    background-image: url("/images/self_portrait.jpeg");
+    background-size: cover;
+    background-position: center -80px;
+}
+
+.about-me{
+    width: 70%;
+    background-color: rgb(59, 69, 92);
+}
+
+.divider{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0, 0, 0);
+    margin: 0;
+}
+
+.divider h1{
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 2px;
 }
 
 
