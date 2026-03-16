@@ -44,6 +44,36 @@
 .about-me{
     width: 70%;
     background-color: rgb(59, 69, 92);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-btn{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background-size: cover;
+    cursor: pointer;
+    border: 6px solid black;
+}
+
+#Education {
+    background-image: url("images/education.jpg");
+}
+
+#Skills {
+    background-image: url("images/skills.jpg");
+}
+
+#Fraternity {
+    background-image: url("images/fraternity.jpg");
+}
+
+#Home {
+    background-image: url("images/home.jpg");
 }
 
 .divider{
