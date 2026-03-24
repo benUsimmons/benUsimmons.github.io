@@ -58,10 +58,33 @@
     background-size: cover;
     cursor: pointer;
     border: 6px solid black;
+    font-size: 25px;
+    color: transparent;
+    transition: color 0.3s;
 }
+
+.about-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.about-btn:hover{
+    color: white;
+}
+
+.about-btn:hover::after{
+    opacity: 1;
+}
+
+
 
 #Education {
     background-image: url("images/education.jpg");
+    background-position: center;
 }
 
 #Skills {
@@ -75,6 +98,7 @@
 #Home {
     background-image: url("images/home.jpg");
 }
+
 
 .divider{
     display: flex;
