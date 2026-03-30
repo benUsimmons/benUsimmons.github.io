@@ -3,6 +3,7 @@ const leftArrow = document.getElementById("left-arrow");
 const rightArrow = document.getElementById("right-arrow");
 const section1 = document.getElementById("section1");
 
+
 leftArrow.addEventListener("click", leftClick);
 rightArrow.addEventListener("click", rightClick);
 
@@ -44,3 +45,16 @@ function setBg(url){
 }
 
 
+// About Me Section
+const education = document.getElementById("Education");
+const home = document.getElementById("Home");
+const skills = document.getElementById("Skills");
+const frat = document.getElementById("Fraternity");
+const aboutMe = document.getElementById("aboutme");
+
+
+education.addEventListener("click", edu);
+
+function edu(){
+   
+}
