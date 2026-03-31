@@ -19,6 +19,7 @@ let currentIndex = 0;
 // initialize
 section1.style.backgroundImage = `url('${photos[currentIndex]}')`;
 
+//function for incrementing to the next photo
 function rightClick(){
   currentIndex++;
   if (currentIndex >= photos.length) {
@@ -27,6 +28,7 @@ function rightClick(){
   section1.style.backgroundImage = `url('${photos[currentIndex]}')`;
 }
 
+//function for decrementing to the next photo
 function leftClick(){
   currentIndex--;
   if (currentIndex < 0) {
@@ -35,26 +37,52 @@ function leftClick(){
   section1.style.backgroundImage = `url('${photos[currentIndex]}')`;
 }
 
-function setBg(url){
-  section1.classList.add("fading");
-  section1.style.setProperty("--bg", `url('${url}')`);
-  section1.style.setProperty("--opacity", "0");
-  setTimeout(() => {
-    section1.style.setProperty("--opacity", "1");
-  }, 20);
-}
+// function setBg(url){
+//   section1.classList.add("fading");
+//   section1.style.setProperty("--bg", `url('${url}')`);
+//   section1.style.setProperty("--opacity", "0");
+//   setTimeout(() => {
+//     section1.style.setProperty("--opacity", "1");
+//   }, 20);
+// }
 
+// ************************* About Me ******************************
 
 // About Me Section
-const education = document.getElementById("Education");
-const home = document.getElementById("Home");
-const skills = document.getElementById("Skills");
-const frat = document.getElementById("Fraternity");
 const aboutMe = document.getElementById("aboutme");
+const originalContent = aboutMe.innerHTML;
 
+//About me content
+const content = {
+    Education: `
+      <div class="info-panel">
+        <h1>Education</h1>
+        <p>Attending Clemson University was the best decision of my life. From the incredible education I received to the amazing relationships I made, I was able to grow in ways I could never imagine.</p>
+      <p>I completed my <strong>Bachelor of Science in Computer Science</strong> in December of 2025 with a minor in <strong>Cyber Security</strong>.</p>
+      </div>
+    `
+};
 
-education.addEventListener("click", edu);
-
-function edu(){
-   
+function showInfo(key) {
+  aboutMe.innerHTML = `
+    ${content[key]}
+    <button class="back-btn" onclick="goBack()">&#8592; Back</button>
+  `;
 }
+
+function goBack() {
+  aboutMe.innerHTML = originalContent;
+  attachButtonListeners();
+}
+
+//Initiliazing the button event listeners
+function attachButtonListeners() {
+  document.getElementById("Education").addEventListener("click", () => showInfo("Education"));
+  document.getElementById("Home").addEventListener("click", () => showInfo("Home"));
+  document.getElementById("Skills").addEventListener("click", () => showInfo("Skills"));
+  document.getElementById("Fraternity").addEventListener("click", () => showInfo("Fraternity"));
+}
+
+//Initializing function call
+attachButtonListeners();
+
