@@ -57,8 +57,39 @@ const content = {
     Education: `
       <div class="info-panel">
         <h1>Education</h1>
-        <p>Attending Clemson University was the best decision of my life. From the incredible education I received to the amazing relationships I made, I was able to grow in ways I could never imagine.</p>
-      <p>I completed my <strong>Bachelor of Science in Computer Science</strong> in December of 2025 with a minor in <strong>Cyber Security</strong>.</p>
+        <p>Attending <strong style="color: orange">Clemson University</strong> was the best decision of my life. From the incredible education I received to the amazing relationships I made, I was able to grow in ways I could never imagine.</p>
+        <p>I completed my <strong>Bachelor of Science in Computer Science</strong> in December of 2025 with a minor in <strong>Cyber Security</strong>.</p>
+        <h2>Notable Courses</h2>
+        <table class="course-table">
+        <thead>
+          <tr>
+            <th>Course</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Web Application Development</td>
+          </tr>
+          <tr>
+            <td>Software Engineering</td>
+          </tr>
+          <tr>
+            <td>Database Management Sytems</td>
+          </tr>
+          <tr>
+            <td>Principals of Cyber Security</td>
+          </tr>
+          <tr>
+            <td>System Admin and Security</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    `,
+    Home: `
+      <div class="info-panel">
+        <h1>Home</h1>
+        <p><strong>Hickory</strong> is a small town west of North Carolina just below the Appalachian mountains. </p>
       </div>
     `
 };
@@ -66,7 +97,7 @@ const content = {
 function showInfo(key) {
   aboutMe.innerHTML = `
     ${content[key]}
-    <button class="back-btn" onclick="goBack()">&#8592; Back</button>
+    <button class="back-btn" onclick="goBack()">&#8592;</button>
   `;
 }
 
