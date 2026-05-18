@@ -31,7 +31,7 @@ function rightClick(){
 //function for decrementing to the next photo
 function leftClick(){
   currentIndex--;
-  if (currentIndex < 0) {
+  if (currentIndxsex < 0) {
     currentIndex = photos.length - 1; // wrap to end
   }
   section1.style.backgroundImage = `url('${photos[currentIndex]}')`;
@@ -86,9 +86,9 @@ const content = {
       </table>
       </div>
     `,
-    Home: `
+    Cyber:`
       <div class="info-panel">
-        <h1>Home</h1>
+        <h1>Cyber</h1>
         <p><strong>Hickory</strong> is a small town west of North Carolina just below the Appalachian mountains. </p>
       </div>
     `
@@ -109,7 +109,7 @@ function goBack() {
 //Initiliazing the button event listeners
 function attachButtonListeners() {
   document.getElementById("Education").addEventListener("click", () => showInfo("Education"));
-  document.getElementById("Home").addEventListener("click", () => showInfo("Home"));
+  document.getElementById("Cyber").addEventListener("click", () => showInfo("Cyber"));
   document.getElementById("Skills").addEventListener("click", () => showInfo("Skills"));
   document.getElementById("Fraternity").addEventListener("click", () => showInfo("Fraternity"));
 }
