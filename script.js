@@ -1,13 +1,8 @@
-// ************************* Alternate Photo ******************************
-const leftArrow = document.getElementById("left-arrow");
-const rightArrow = document.getElementById("right-arrow");
 const section1 = document.getElementById("section1");
+const layer1 = document.getElementById("bg-layer1");
+const layer2 = document.getElementById("bg-layer2");
 
-
-leftArrow.addEventListener("click", leftClick);
-rightArrow.addEventListener("click", rightClick);
-
-const photos = [
+const images = [
   "/images/photo1.jpg",
   "/images/photo2.jpg",
   "/images/photo3.jpg",
@@ -15,105 +10,26 @@ const photos = [
 ];
 
 let currentIndex = 0;
+let isLayer1Active = true;
 
-// initialize
-section1.style.backgroundImage = `url('${photos[currentIndex]}')`;
+// Set first image
+layer1.style.backgroundImage = `url(${images[0]})`;
+layer1.style.opacity = 1;
+layer2.style.opacity = 0;
 
-//function for incrementing to the next photo
-function rightClick(){
-  currentIndex++;
-  if (currentIndex >= photos.length) {
-    currentIndex = 0; // wrap to start
+setInterval(() => {
+  currentIndex = (currentIndex + 1) % images.length;
+
+  if (isLayer1Active) {
+    layer2.style.backgroundImage = `url(${images[currentIndex]})`;
+    layer2.style.opacity = 1;
+    layer1.style.opacity = 0;
+  } else {
+    layer1.style.backgroundImage = `url(${images[currentIndex]})`;
+    layer1.style.opacity = 1;
+    layer2.style.opacity = 0;
   }
-  section1.style.backgroundImage = `url('${photos[currentIndex]}')`;
-}
 
-//function for decrementing to the next photo
-function leftClick(){
-  currentIndex--;
-  if (currentIndxsex < 0) {
-    currentIndex = photos.length - 1; // wrap to end
-  }
-  section1.style.backgroundImage = `url('${photos[currentIndex]}')`;
-}
+  isLayer1Active = !isLayer1Active;
 
-// function setBg(url){
-//   section1.classList.add("fading");
-//   section1.style.setProperty("--bg", `url('${url}')`);
-//   section1.style.setProperty("--opacity", "0");
-//   setTimeout(() => {
-//     section1.style.setProperty("--opacity", "1");
-//   }, 20);
-// }
-
-// ************************* About Me ******************************
-
-// About Me Section
-const aboutMe = document.getElementById("aboutme");
-const originalContent = aboutMe.innerHTML;
-
-//About me content
-const content = {
-    Education: `
-      <div class="info-panel">
-        <h1>Education</h1>
-        <p>Attending <strong style="color: orange">Clemson University</strong> was the best decision of my life. From the incredible education I received to the amazing relationships I made, I was able to grow in ways I could never imagine.</p>
-        <p>I completed my <strong>Bachelor of Science in Computer Science</strong> in December of 2025 with a minor in <strong>Cyber Security</strong>.</p>
-        <h2>Notable Courses</h2>
-        <table class="course-table">
-        <thead>
-          <tr>
-            <th>Course</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Web Application Development</td>
-          </tr>
-          <tr>
-            <td>Software Engineering</td>
-          </tr>
-          <tr>
-            <td>Database Management Sytems</td>
-          </tr>
-          <tr>
-            <td>Principals of Cyber Security</td>
-          </tr>
-          <tr>
-            <td>System Admin and Security</td>
-          </tr>
-        </tbody>
-      </table>
-      </div>
-    `,
-    Cyber:`
-      <div class="info-panel">
-        <h1>Cyber</h1>
-        <p><strong>Hickory</strong> is a small town west of North Carolina just below the Appalachian mountains. </p>
-      </div>
-    `
-};
-
-function showInfo(key) {
-  aboutMe.innerHTML = `
-    ${content[key]}
-    <button class="back-btn" onclick="goBack()">&#8592;</button>
-  `;
-}
-
-function goBack() {
-  aboutMe.innerHTML = originalContent;
-  attachButtonListeners();
-}
-
-//Initiliazing the button event listeners
-function attachButtonListeners() {
-  document.getElementById("Education").addEventListener("click", () => showInfo("Education"));
-  document.getElementById("Cyber").addEventListener("click", () => showInfo("Cyber"));
-  document.getElementById("Skills").addEventListener("click", () => showInfo("Skills"));
-  document.getElementById("Fraternity").addEventListener("click", () => showInfo("Fraternity"));
-}
-
-//Initializing function call
-attachButtonListeners();
-
+}, 10000);
