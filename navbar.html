@@ -8,12 +8,19 @@
         padding: 30px;
     }
 
-    .navbar button{
+    .navbar button {
         background-color: black;
         border: none;
         color: white;
         font-size: 24px;
         font-family: "Press Start 2P", system-ui;
+        cursor: pointer;
+        transition: text-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .navbar button:hover {
+        text-shadow: 4px 4px 0px #545454, 0 0 20px rgba(255,255,255,0.4);
+        transform: translateY(2px);
     }
 </style>
 

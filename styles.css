@@ -1,8 +1,10 @@
 /* ******************************************* HOME PAGE **************************************************/
-.home-page{
-    margin: 0;
+.home-page {
+  margin: 0;
+  background-color: #0a0a0a;
+  color: #fff;
 }
-
+ 
 #section1 {
   position: relative;
   height: 50vh;
@@ -11,7 +13,7 @@
   justify-content: center;
   align-items: center;
 }
-
+ 
 .bg-layer {
   position: absolute;
   inset: 0;
@@ -20,11 +22,127 @@
   transition: opacity 2s ease-in-out;
   z-index: 0;
 }
-
+ 
 #section1 h1 {
   position: relative;
-  z-index: 1; /* sits above the bg layers */
+  z-index: 1;
   font-family: "Press Start 2P", system-ui;
   font-size: 24px;
+  color: #fff;
+  text-shadow: 4px 4px 0px #000, 0 0 20px rgba(255,255,255,0.4);
 }
 /* ******************************************* END HOME PAGE **************************************************/
+ 
+ 
+/* ******************************************* ABOUT SECTION **************************************************/
+#about {
+  padding: 80px 40px;
+  background-color: #0a0a0a;
+  border-top: 3px solid #fff;
+}
+ 
+.about-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+ 
+/* --- Photo --- */
+.about-photo-wrap {
+  flex: 0 0 auto;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+ 
+.about-photo-wrap.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+ 
+.pixel-frame {
+  width: 260px;
+  height: 300px;
+  border: 4px solid #fff;
+  box-shadow: 8px 8px 0px #fff;
+  overflow: hidden;
+  image-rendering: pixelated;
+  position: relative;
+}
+ 
+.pixel-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: bottom 20px;
+  display: block;
+  filter: contrast(1.05);
+}
+ 
+/* --- Text --- */
+.about-text {
+  flex: 1;
+  min-width: 280px;
+}
+ 
+.about-heading {
+  font-family: "Press Start 2P", system-ui;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 36px;
+  letter-spacing: 2px;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 14px;
+}
+ 
+.terminal-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+ 
+.terminal-line {
+  font-family: "Press Start 2P", system-ui;
+  font-size: 10px;
+  color: #aaa;
+  line-height: 1.8;
+  opacity: 0;
+  transform: translateX(-10px);
+  animation: slideIn 0.4s ease forwards;
+  animation-delay: var(--delay);
+}
+ 
+.terminal-line .prompt {
+  color: #fff;
+  margin-right: 8px;
+}
+ 
+.terminal-line .highlight {
+  color: #fff;
+}
+ 
+.terminal-line .blink {
+  animation: blink 1s step-start infinite, slideIn 0.4s ease forwards;
+  animation-delay: 0s, var(--delay);
+}
+ 
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+ 
+@keyframes blink {
+  50% { opacity: 0; }
+}
+/* ******************************************* END ABOUT SECTION **************************************************/
+
+/* ******************************************* CYBER SECTION **************************************************/
+.cyber{
+    border-top: 3px solid #fff;
+    background-color: black;
+}
