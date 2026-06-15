@@ -146,3 +146,19 @@
     border-top: 3px solid #fff;
     background-color: black;
 }
+
+.cyber-inner{
+    font-family: "Press Start 2P", system-ui;
+    font-size: 10px;
+    padding: 40px;
+    line-height: 3;
+}
+
+#cyberPassion{
+  opacity: 0;
+  transition: opacity 5s;
+}
+
+#cyberPassion.fade{
+  opacity: 1;
+}

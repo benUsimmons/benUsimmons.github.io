@@ -44,3 +44,30 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.2 });
  
 if (photoWrap) observer.observe(photoWrap);
+
+
+// Type Writer Cyber Section
+const content = "Why Cyber Security?";
+let typing = "";
+const length = content.length;
+const typewriter = document.getElementById("typewriter");
+const cyberContent = document.getElementById("cyberPassion");
+
+// 1. Define what you want to happen
+const observerTwo = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      for (let i = 0; i < content.length; i++) {
+        setTimeout(() => {
+          typewriter.textContent += content[i];
+        }, i * 120);  // 0ms, 60ms, 120ms, 180ms...
+      }
+      cyberContent.classList.toggle('fade');
+
+      observerTwo.unobserve(entry.target);
+    }
+  });
+});
+
+
+observerTwo.observe(typewriter);
