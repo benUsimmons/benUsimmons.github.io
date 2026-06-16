@@ -97,7 +97,7 @@
   border-bottom: 2px solid #fff;
   padding-bottom: 14px;
 }
- 
+ /*About page Terminal Lines*/
 .terminal-lines {
   display: flex;
   flex-direction: column;
@@ -145,6 +145,8 @@
 .cyber{
     border-top: 3px solid #fff;
     background-color: black;
+    display: flex;
+    flex-direction: row;
 }
 
 .cyber-inner{
@@ -152,6 +154,17 @@
     font-size: 10px;
     padding: 40px;
     line-height: 3;
+    width: 50%;
+}
+
+.cyber-experience{
+    font-family: "Press Start 2P", system-ui;
+    font-size: 10px;
+    padding: 40px;
+    flex: 1;
+    min-width: 280px;
+    display: flex;
+    flex-direction: row;
 }
 
 #cyberPassion{
@@ -161,4 +174,46 @@
 
 #cyberPassion.fade{
   opacity: 1;
+}
+
+.experience-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+ 
+.experience-line {
+  font-family: "Press Start 2P", system-ui;
+  font-size: 10px;
+  color: #aaa;
+  line-height: 1.8;
+  opacity: 0;
+  transform: translateX(-10px);
+  animation: slideIn 0.4s ease forwards;
+  animation-delay: var(--delay);
+}
+ 
+.experience-line .prompt {
+  color: #fff;
+  margin-right: 8px;
+}
+ 
+.experience-line .highlight {
+  color: #fff;
+}
+ 
+.experience-line .blink {
+  animation: blink 1s step-start infinite, slideIn 0.4s ease forwards;
+  animation-delay: 0s, var(--delay);
+}
+ 
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+ 
+@keyframes blink {
+  50% { opacity: 0; }
 }

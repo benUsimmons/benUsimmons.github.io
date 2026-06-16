@@ -53,7 +53,7 @@ const length = content.length;
 const typewriter = document.getElementById("typewriter");
 const cyberContent = document.getElementById("cyberPassion");
 
-// 1. Define what you want to happen
+// Wrap in intersectionObserver to verify content is on the page
 const observerTwo = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -67,7 +67,7 @@ const observerTwo = new IntersectionObserver((entries) => {
       observerTwo.unobserve(entry.target);
     }
   });
-});
+}, {threshold: 1});
 
 
 observerTwo.observe(typewriter);
