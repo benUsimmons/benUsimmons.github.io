@@ -217,3 +217,36 @@
 @keyframes blink {
   50% { opacity: 0; }
 }
+
+
+.writeUps{
+  font-family: "Press Start 2P", system-ui;
+  font-size: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.pdfs{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 40px;
+}
+
+.pdf-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
+  color: #fff;
+  background-color: #000;
+  border: 3px solid #fff;
+  text-decoration: none;
+  cursor: pointer;
+  image-rendering: pixelated;
+}
+.pdf-btn:hover {
+  background-color: #fff;
+  color: #000;
+}
