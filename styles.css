@@ -250,3 +250,8 @@
   background-color: #fff;
   color: #000;
 }
+
+/* ******************************* Gallery ****************************************************************** */
+.photo-gallery{
+  background-color: black;
+}
