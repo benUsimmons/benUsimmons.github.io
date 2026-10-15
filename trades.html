@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- <title>Ben Simmons</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Diplomata&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="navbar.js" defer></script> -->
+</head>
+<body>
+    <div id="player-search-widget">
+    <input type="text" id="player-search-input" placeholder="Search player name...">
+    <div id="player-search-results"></div>
+    </div>
+
+    <script>
+    const CACHE_KEY = "sleeper_players_cache";
+    const CACHE_TIME_KEY = "sleeper_players_cache_time";
+    const ONE_DAY = 24 * 60 * 60 * 1000;
+
+    let allPlayers = [];
+
+    async function loadPlayers() {
+    const cached = localStorage.getItem(CACHE_KEY);
+    const cachedTime = localStorage.getItem(CACHE_TIME_KEY);
+
+    let players;
+    if (cached && cachedTime && (Date.now() - Number(cachedTime) < ONE_DAY)) {
+        players = JSON.parse(cached);
+    } else {
+        const res = await fetch("https://api.sleeper.app/v1/players/nfl?active=true");
+        players = await res.json();
+        localStorage.setItem(CACHE_KEY, JSON.stringify(players));
+        localStorage.setItem(CACHE_TIME_KEY, Date.now().toString());
+    }
+
+    // Flatten into an array and drop entries with no real name (team defenses, etc.)
+    allPlayers = Object.values(players).filter(p => p.first_name && p.last_name);
+    }
+
+    function renderResults(matches) {
+    const container = document.getElementById("player-search-results");
+
+    if (matches.length === 0) {
+        container.innerHTML = "<p>No players found.</p>";
+        return;
+    }
+
+    container.innerHTML = matches.slice(0, 10).map(p => `
+        <div class="player-result">
+        <strong>${p.first_name} ${p.last_name}</strong> —
+        ${p.position ?? "?"} · ${p.team ?? "FA"}<br>
+        Status: ${p.status ?? "Unknown"}${p.injury_status ? ` (${p.injury_status})` : ""}
+        </div>
+    `).join("");
+    }
+
+    function handleSearch(query) {
+    const q = query.trim().toLowerCase();
+    if (q.length < 2) {
+        document.getElementById("player-search-results").innerHTML = "";
+        return;
+    }
+
+    const matches = allPlayers.filter(p =>
+        `${p.first_name} ${p.last_name}`.toLowerCase().includes(q)
+    );
+
+    renderResults(matches);
+    }
+
+    loadPlayers();
+
+    document.getElementById("player-search-input").addEventListener("input", (e) => {
+    handleSearch(e.target.value);
+    });
+    </script>
+</body>
+</html>
